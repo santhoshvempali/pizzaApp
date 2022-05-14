@@ -25,6 +25,7 @@
   "homepage": "https://github.com/santhoshvempali/pizzaApp#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
@@ -35,6 +36,8 @@
     "mongoose": "^6.3.3",
     "nodemon": "^2.0.16",
     "noty": "^3.2.0-beta-deprecated",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
     "postcss-normalize-url": "^5.0.3"
   },
   "devDependencies": {

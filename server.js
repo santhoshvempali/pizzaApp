@@ -9,7 +9,9 @@ const PORT=process.env.PORT || 4000
 const session=require("express-session");
 const flash=require("express-flash");
 const mongoStore=require("connect-mongo");
-const res = require("express/lib/response");
+const passport=require("passport")
+// const res = require("express/lib/response");
+
 app=express()
 
 app.use(session({
@@ -21,9 +23,15 @@ app.use(session({
         mongoUrl:"mongodb://localhost:27017/pizza-app",
     })
 }));
+const passportInit=require("./app/config/passport")
+passportInit(passport)
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash())
+app.use(express.urlencoded({extended: false}))
 app.use((req,res,next)=>{
     res.locals.session=req.session
+    res.locals.user=req.user
     next()
 })
 app.use(express.json())
